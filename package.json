@@ -1,0 +1,50 @@
+{
+  "name": "titus-moodle",
+  "version": "1.0.0",
+  "moodle": {
+    "branch": 34,
+    "tag": "latest-34",
+    "plugins": [
+      "local/tlcore",
+      "mod/tlwall"
+    ],
+    "vendor": [
+      "node_modules/angular/angular.js",
+      "node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js",
+      "node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js",
+      "build/vendor/angular-ui-router.min.js"
+    ]
+  },
+  "scripts": {
+    "gitignore": "./build/gitignore.sh",
+    "moodle": "./build/moodle.sh",
+    "purge": "php moodle/admin/cli/purge_caches.php",
+    "upgrade": "./build/upgrade.sh"
+  },
+  "main": "index.js",
+  "license": "",
+  "private": true,
+  "devDependencies": {
+    "event-stream": "^3.3.4",
+    "gulp": "^3.9.1",
+    "gulp-angular-templatecache": "^2.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-headerfooter": "^1.0.3",
+    "gulp-if": "^2.0.2",
+    "gulp-notify": "^3.2.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-zip": "^4.1.0",
+    "streamqueue": "^1.1.2"
+  },
+  "dependencies": {
+    "angular": "^1.7.0",
+    "angular-amd": "^0.2.1",
+    "angular-ui-bootstrap": "2.3.2",
+    "angular-ui-router": "^1.0.18",
+    "moment": "2.17.1",
+    "moment-calendar": "0.0.4",
+    "moment-timezone": "^0.5.10",
+    "vue": "^2.5.16"
+  }
+}

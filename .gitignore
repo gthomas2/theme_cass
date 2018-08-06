@@ -16,6 +16,7 @@
 .vagrant/
 .idea/
 .vscode/
+.history/
 nbproject/
 node_modules/
 /moodle*.zip

@@ -38,11 +38,9 @@ info "Downloading Moodle $TAG..."
 if [ -e moodle-$TAG.zip ]; then
     rm moodle-$TAG.zip
 fi
-if hash wget 2>/dev/null; then
-    wget -q --no-check-certificate https://download.moodle.org/download.php/direct/stable$BRANCH/moodle-$TAG.zip
-else
-    curl -s -k -X GET https://download.moodle.org/download.php/direct/stable$BRANCH/moodle-$TAG.zip > moodle-$TAG.zip
-fi
+
+curl -s -k -X GET https://download.moodle.org/download.php/direct/stable$BRANCH/moodle-$TAG.zip > moodle-$TAG.zip
+
 if [ $? -gt 0 ]; then
     fail "Failed to download Moodle"
     exit 1
@@ -67,7 +65,7 @@ do
 
     if [ -e "$BUILD/backup/$PLUGIN" ]; then
         mkdir -p "$ROOT/moodle/$PLUGIN"
-        cp -r "$BUILD/backup/$PLUGIN/." "$ROOT/moodle/$PLUGIN"
+        cp -a "$BUILD/backup/$PLUGIN/." "$ROOT/moodle/$PLUGIN"
     fi
 done
 

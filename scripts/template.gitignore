@@ -5,6 +5,7 @@
 .history/
 nbproject/
 node_modules/
+es5/
 /moodle*.zip
 yarn-error.log
 yarn.lock
@@ -18,6 +19,6 @@ yarn.lock
 /moodledata
 !/moodledata/.gitkeep
 
-/build/backup
-!/build/backup/.gitkeep
+/backup
+!/backup/.gitkeep
 *.code-workspace

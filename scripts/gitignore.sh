@@ -41,8 +41,8 @@ create_template () {
             fi
         done
     done
-  
-    echo -e "${LINES}\n$(cat $BUILD/.gitignore)" > $ROOT/.gitignore
+
+    echo -e "${LINES}\n$(cat $SCRIPTS/template.gitignore)" > $ROOT/.gitignore
 }
 
 create_template

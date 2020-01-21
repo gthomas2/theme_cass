@@ -15,21 +15,21 @@ do
     PLUGIN=`get_moodle plugins[$i]`
 
     if [ -e "$ROOT/moodle/$PLUGIN" ]; then
-        rm -vrf "$BUILD/backup/$PLUGIN"
-        mkdir -p "$BUILD/backup/$PLUGIN"
-        cp -r "$ROOT/moodle/$PLUGIN/." "$BUILD/backup/$PLUGIN"
+        rm -vrf "$ROOT/backup/$PLUGIN"
+        mkdir -p "$ROOT/backup/$PLUGIN"
+        cp -r "$ROOT/moodle/$PLUGIN/." "$ROOT/backup/$PLUGIN"
     fi
 done
 
 # backup the config.php
 if [ -e "$ROOT/moodle/config.php" ]; then
-    cp "$ROOT/moodle/config.php" "$BUILD/backup/config.php"
+    cp "$ROOT/moodle/config.php" "$ROOT/backup/config.php"
 fi
 
 # backup whole moodle just in case
 if [ -e "$ROOT/moodle" ]; then
     info "Taking a backup of the current Moodle..."
-    tar -czf "$BUILD/backup/moodle.tar.gz" "$ROOT/moodle"
+    tar -czf "$ROOT/backup/moodle.tar.gz" "$ROOT/moodle"
 fi
 
 # grab Moodle and unpack in root of project
@@ -63,17 +63,17 @@ for i in `seq 0 $(($NUM-1))`
 do
     PLUGIN=`get_moodle plugins[$i]`
 
-    if [ -e "$BUILD/backup/$PLUGIN" ]; then
+    if [ -e "$ROOT/backup/$PLUGIN" ]; then
         mkdir -p "$ROOT/moodle/$PLUGIN"
-        cp -a "$BUILD/backup/$PLUGIN/." "$ROOT/moodle/$PLUGIN"
+        cp -a "$ROOT/backup/$PLUGIN/." "$ROOT/moodle/$PLUGIN"
     fi
 done
 
 # restore config.php, or copy a new one
-if [ -e "$BUILD/backup/config.php" ]; then
-    cp "$BUILD/backup/config.php" "$ROOT/moodle/config.php"
+if [ -e "$ROOT/backup/config.php" ]; then
+    cp "$ROOT/backup/config.php" "$ROOT/moodle/config.php"
 else
-    cp "$BUILD/config/moodle/config.dev.php" "$ROOT/moodle/config.php"
+    cp "$SCRIPTS/config/moodle/config.dev.php" "$ROOT/moodle/config.php"
 fi
 
 success "Moodle $TAG ready, custom plugins restored."

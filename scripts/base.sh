@@ -5,8 +5,8 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 GREY='\033[0;36m'
 NC='\033[0m' # No Color
-BUILD=`pwd`
-ROOT="$BUILD/../"
+SCRIPTS=`pwd`
+ROOT="$SCRIPTS/../"
 
 success () { echo -e "${GREEN}$1${NC}"; }
 

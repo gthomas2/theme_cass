@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ruleset name="Titus Moodle standard subset" namespace="">
+
+ <!--
+    These are some common moodle coding standards.
+    runing phpcs -s against a file will test against
+    all moodle coding standards and the -s will show the
+    sniff code
+ -->
+<rule ref="moodle.WhiteSpace.SpaceAfterComma.NoSpace"/>
+<rule ref="moodle.Files.MoodleInternal"/>
+
+<!--
+<rule ref="moodle.ControlStructures.ControlSignature"/>
+<rule ref="moodle.NamingConventions.ValidVariableName"/>
+<rule ref="moodle.Commenting.InlineComment.InvalidEndChar"/>
+<rule ref="moodle.Commenting.InlineComment.NoSpaceBefore"/>
+<rule ref="moodle.Commenting.InlineComment.NotCapital"/>
+<rule ref="moodle.Files.LineLength.TooLong"/>
+<rule ref="moodle.Commenting.InlineComment.SpacingAfter"/>
+-->
+
+</ruleset>

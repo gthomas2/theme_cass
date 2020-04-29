@@ -1,0 +1,47 @@
+#Titus Learning Continuous Integration
+#Code standards compliance through PHPSniff
+#Automated testining with PHPUnit and Behat
+#Validate at https://bitbucket-pipelines.atlassian.io/validator
+pipelines:
+  pull-requests:
+      '**':
+         - step:
+             name: PHPSniffer
+             #image: atlassian/default-image:2
+             image: composer:1.9
+             script:
+             # Branches available v3.8.2 v3.7.5 v3.6.9 3.5.11
+             - MOODLE_BRANCH="v3.8.2"
+             # Customise ruleset.xml or remove references for full moodle code compliance
+             - cp ruleset.xml moodle
+             - composer global require "squizlabs/php_codesniffer=2.*"
+             - composer global install
+             - composer require --dev "blackboard-open-source/moodle-coding-standard"
+             - export PATH="$HOME:/tmp/vendor/squizlabs/php_codesniffer/scripts/phpcs:$PATH"
+             - /tmp/vendor/squizlabs/php_codesniffer/scripts/phpcs  --config-set  installed_paths /opt/atlassian/pipelines/agent/build/vendor/blackboard-open-source/moodle-coding-standard
+             - /tmp/vendor/squizlabs/php_codesniffer/scripts/phpcs --extensions=php --standard=moodle/ruleset.xml  moodle/version.php
+         - step:
+            name: PHPUnit and Behat
+            image: atlassian/default-image:2
+            script:
+           #- The following would be required for secure copy, e.g. workplace
+           #- chmod 400 ./.ssh/id_rsa
+           #- scp    -F ./.ssh/config -i ./.ssh/id_rsa moodlesource@somedomain.co.uk:/home/moodlesource/moodlezips/workplacecode.zip .
+             - MOODLE_BRANCH="v3.8.2"
+             - wget github.com/moodle/moodle/archive/$MOODLE_BRANCH".zip"
+             - unzip -qq $MOODLE_BRANCH".zip"
+             - cp composer.phar moodle
+             - cp -R moodle-3*/* moodle
+             - git clone https://github.com/moodlehq/moodle-docker
+             - export MOODLE_DOCKER_WWWROOT=/opt/atlassian/pipelines/agent/build/moodle
+             - export MOODLE_DOCKER_DB=pgsql #or mysql
+             - cd moodle-docker
+             - cp config.docker-template.php $MOODLE_DOCKER_WWWROOT/config.php
+             - bin/moodle-docker-compose up -d
+             - bin/moodle-docker-wait-for-db
+             - bin/moodle-docker-compose exec -T webserver php admin/tool/phpunit/cli/init.php
+             #- bin/moodle-docker-compose exec -T webserver vendor/bin/phpunit  local/yourplugin --test-suffix=test.php
+             # Behat could be run in its own step, but that would add to the time taken
+             - bin/moodle-docker-compose exec -T webserver php admin/tool/behat/cli/init.php
+             #- bin/moodle-docker-compose exec -T -u www-data webserver php admin/tool/behat/cli/run.php --tags=@yourtags
+

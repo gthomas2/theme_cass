@@ -17,7 +17,7 @@ Answer: No it won't, because we use .gitignore to prevent moodle from being comm
 ## How do I modify the .gitignore file?
 DO NOT simply just modify .gitignore.
 Instead, you need to modify package.json to tell it what plugins you will be commiting. For example, if I want to include the folder blocks/ace then I simply add "blocks/ace" to the "plugins" folder as follows:
-    
+
     {
       "name": "titus-moodle",
       "version": "1.0.0",
@@ -44,11 +44,11 @@ npm run upgrade
 Before you can compile any of these file types you must do the following:
 Make sure you are using node v8.9.4
 Note: If you currently have a different version of node, you can download nvm to switch to node v8.9.4
-Note: It is incredibly important that you are using v8.9.4 before you attempt the following steps: 
+Note: It is incredibly important that you are using v8.9.4 before you attempt the following steps:
 In your project's moodle folder run "npm install"
 In moodle/local/titus-core run "npm install"
 Copy the contents of moodle/local/tlcore/plugin_grunt_files into your new plugin(s)
- (e.g. blocks/ace) 
+ (e.g. blocks/ace)
 Run npm install in your plugin(s) folder
 
 You should now be able to compile scss, es6, vuejs.
@@ -67,4 +67,4 @@ see local/tlcore/README.md for more details.
 
 ## IMPORTANT NOTE FOR DEVS
 DO NOT merge other project branches into this master branch.
-This branch should just contain the bare-bones for titus project branches to start off from.
+This branch should just contain the bare-bones for titus project branches to start off from. For setting up CI see https://tituslearning.atlassian.net/wiki/spaces/DEV/pages/63177149/CI+setup

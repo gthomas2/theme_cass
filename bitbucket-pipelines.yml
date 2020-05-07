@@ -19,7 +19,7 @@ pipelines:
              - composer require --dev "blackboard-open-source/moodle-coding-standard"
              - export PATH="$HOME:/tmp/vendor/squizlabs/php_codesniffer/scripts/phpcs:$PATH"
              - /tmp/vendor/squizlabs/php_codesniffer/scripts/phpcs  --config-set  installed_paths /opt/atlassian/pipelines/agent/build/vendor/blackboard-open-source/moodle-coding-standard
-             - /tmp/vendor/squizlabs/php_codesniffer/scripts/phpcs --extensions=php --standard=moodle/ruleset.xml  moodle/version.php
+             - /tmp/vendor/squizlabs/php_codesniffer/scripts/phpcs --extensions=php --standard=moodle  moodle/version.php
          - step:
             name: PHPUnit and Behat
             image: atlassian/default-image:2
@@ -44,4 +44,9 @@ pipelines:
              # Behat could be run in its own step, but that would add to the time taken
              - bin/moodle-docker-compose exec -T webserver php admin/tool/behat/cli/init.php
              #- bin/moodle-docker-compose exec -T -u www-data webserver php admin/tool/behat/cli/run.php --tags=@yourtags
-
+            services:
+              - docker
+definitions:
+  services:
+    docker:
+      memory: 3072

@@ -1,0 +1,26 @@
+#page-user-profile,
+.path-course.path-user {
+  // Full screen width for profile pages.
+  #region-main {
+    max-width: 100%;
+    padding: 5em 4%;
+  }
+}
+
+.path-user {
+  .breadcrumb>li:first-child {
+    display: none;
+  }
+
+  .breadcrumb>li:nth-child(2):before {
+    content: '\e091 ';
+    padding: 0 1em 0 0;
+    vertical-align: top;
+    font-family: 'Glyphicons Halflings';
+    color: #000;
+  }
+}
+
+#page-user-profile .node_category li, .path-user .node_category li {
+  list-style-type: none;
+}

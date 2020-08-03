@@ -5,7 +5,7 @@
     "branch": 38,
     "tag": "latest-38",
     "plugins": [
-      "local/tlcore"
+      "theme/cass"
     ]
   },
   "scripts": {

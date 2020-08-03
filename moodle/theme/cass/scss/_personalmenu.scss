@@ -1,0 +1,29 @@
+// -------------------------
+//  Personal menu current courses.
+// -------------------------
+#snap-pm-courses-current {
+  #snap-pm-courses-current-cards {
+    margin-top: 2em;
+  }
+}
+
+// -------------------------
+//  Course cards - a card for each course.
+// -------------------------
+.coursecard {
+  // Course card data - below the image.
+  .coursecard-body {
+    padding: 1.618em 0.618em 1em 0.618em;
+  }
+}
+
+// Hide link to dashboard.
+#snap-pm-header-quicklinks {
+    a[href$="/my"] {
+        display: none;
+    }
+}
+
+#snap-pm-updates h3 {
+    font-family: $font-family-base;
+}

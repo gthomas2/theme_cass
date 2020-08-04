@@ -8,6 +8,7 @@ $string['activitycomplete'] = 'Activity Complete!';
 $string['breadcrumbsinnav'] = 'Breadcrumbs in Navigation Menu';
 $string['breadcrumbsinnavdesc'] = 'Position the breadcrumbs inside the navigation menu to save on vertical space';
 
+$string['choosereadme'] = 'CASS theme based on Snap theme';
 $string['close'] = 'Close';
 $string['collapsecompletedactivities'] = 'Collapse completed activities on course page';
 $string['collapsecompletedactivitiesdesc'] = 'When enabled, completed activities on the course page are collapsed';

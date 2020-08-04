@@ -5,9 +5,10 @@
 # ---------------------------------------------
 
 /moodle/*
-/moodle/local/*
-!/moodle/local
-!/moodle/local/tlcore
+/moodle/theme/*
+!/moodle/theme
+!/moodle/theme/cass
+!/moodle/theme/snap
 
 .DS_Store
 .vagrant/

@@ -718,7 +718,7 @@ class course_renderer extends snap_course_renderer {
      * @return string
      * @throws coding_exception
      */
-    public function submission_cta(cm_info $mod, activity_meta $meta) {
+    public static function submission_cta(cm_info $mod, activity_meta $meta) {
         global $CFG;
 
         if (empty($meta->submissionnotrequired)) {
@@ -817,7 +817,7 @@ class course_renderer extends snap_course_renderer {
             }
             // @codingStandardsIgnoreLine
             /* @var cm_info $mod */
-            $content .= $this->submission_cta($mod, $meta);
+            $content .= self::submission_cta($mod, $meta);
         }
 
         // Activity due date.
@@ -1199,8 +1199,9 @@ class course_renderer extends snap_course_renderer {
         $categoryselector = '';
         // NOTE - we output manage catagory button in the layout file in Snap.
 
+        $simplesite = coursecat::is_simple_site();
         if (!$coursecat->id) {
-            if (coursecat::count_all() == 1) {
+            if ($simplesite) {
                 // There exists only one category in the system, do not display link to it.
                 $coursecat = coursecat::get_default();
                 $strfulllistofcourses = get_string('fulllistofcourses');
@@ -1211,13 +1212,13 @@ class course_renderer extends snap_course_renderer {
             }
         } else {
             $title = $site->shortname;
-            if (coursecat::count_all() > 1) {
+            if (!$simplesite) {
                 $title .= ": ". $coursecat->get_formatted_name();
             }
             $this->page->set_title($title);
 
             // Print the category selector.
-            if (coursecat::count_all() > 1) {
+            if (!$simplesite) {
                 $select = new \single_select(new moodle_url('/course/index.php'), 'categoryid',
                     coursecat::make_categories_list(), $coursecat->id, null, 'switchcategory');
                 $select->set_label(get_string('category').':');
@@ -1290,7 +1291,7 @@ class course_renderer extends snap_course_renderer {
 
         $output .= $this->container_start('buttons');
         ob_start();
-        if (coursecat::count_all() == 1) {
+        if ($simplesite) {
             print_course_request_buttons(\context_system::instance());
         } else {
             print_course_request_buttons($context);

@@ -34,6 +34,16 @@ use breadcrumb_navigation_node;
 class core_renderer extends \theme_snap\output\core_renderer {
 
     /**
+     * Add sub-theme-cass to body class.
+     * @param array $additionalclasses
+     * @return array|string
+     */
+    public function body_css_classes(array $additionalclasses = array()) {
+        $additionalclasses[] = 'sub-theme-cass';
+        return parent::body_css_classes($additionalclasses);
+    }
+
+    /**
      * This renders the navbar.
      * Uses bootstrap compatible html.
      * @param string $coverimage

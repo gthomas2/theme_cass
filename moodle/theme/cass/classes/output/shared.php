@@ -33,8 +33,7 @@ class shared extends \theme_snap\output\shared {
      *
      * @return void
      */
-    public static function page_requires_js()
-    {
+    public static function page_requires_js() {
         global $PAGE;
 
         // We want to have some theme settings available to javascript.

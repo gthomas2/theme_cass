@@ -67,39 +67,6 @@ class course_renderer extends snap_course_renderer {
             list($snapmodtype, $extension) = $this->get_mod_type($mod);
 
             $modclasses = array('snap-activity');
-            /*
-            if ($mod->modname === 'resource') {
-                // Default for resources/attatchments e.g. pdf, doc, etc.
-                $modclasses = array('snap-resource', 'snap-mime-'.$extension);
-                if (in_array($extension, $this->snap_multimedia())) {
-                    $modclasses[] = 'js-snap-media';
-                }
-                // For images we overwrite with the native class.
-                if ($this->is_image_mod($mod)) {
-                    $modclasses = array('snap-native-image', 'snap-image', 'snap-mime-'.$extension);
-                }
-            } else if ($mod->modname === 'folder' && !$mod->url) {
-                // Folder mod set to display on page.
-                $modclasses = array('snap-activity');
-            } else if (plugin_supports('mod', $mod->modname, FEATURE_MOD_ARCHETYPE) === MOD_ARCHETYPE_RESOURCE) {
-                $modclasses = array('snap-resource');
-            } else if ($mod->modname === 'scorm') {
-                $modclasses = array('snap-resource');
-            } else if ($mod->modname !== 'label') {
-                $modclasses = array('snap-activity');
-            }
-
-            // Special classes for native html elements.
-            if (in_array($mod->modname, ['page', 'book'])) {
-                $modclasses = array('snap-native', 'snap-mime-'.$mod->modname);
-                $attr['aria-expanded'] = "false";
-            } else if ($modurl = $mod->url) {
-                // For snap cards, js uses this to make the whole card clickable.
-                if ($mod->uservisible) {
-                    $attr['data-href'] = $modurl;
-                }
-            }
-            */
 
             // Is this mod draft?
             if (!$mod->visible && !$mod->visibleold) {

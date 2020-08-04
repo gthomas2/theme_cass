@@ -6,7 +6,8 @@
     "tag": "latest-38",
     "plugins": [
       "theme/cass",
-      "theme/snap"
+      "theme/snap",
+      "mod/hsuforum"
     ]
   },
   "scripts": {

@@ -7,14 +7,17 @@
     all moodle coding standards and the -s will show the
     sniff code
  -->
+<rule ref="moodle"/>
+<exclude-pattern>*/vendor/*</exclude-pattern>
+<!--
 <rule ref="moodle.WhiteSpace.SpaceAfterComma.NoSpace"/>
 <rule ref="moodle.Files.MoodleInternal"/>
 <rule ref="moodle.ControlStructures.ControlSignature"/>
 <rule ref="moodle.NamingConventions.ValidVariableName"/>
-<rule ref="moodle.Commenting.InlineComment.InvalidEndChar"/>
-<rule ref="moodle.Commenting.InlineComment.NoSpaceBefore"/>
-<rule ref="moodle.Commenting.InlineComment.NotCapital"/>
 <rule ref="moodle.Files.LineLength.TooLong"/>
+<rule ref="moodle.Commenting.InlineComment.InvalidEndChar"/>
+<rule ref="moodle.Commenting.InlineComment.NotCapital"/>
 <rule ref="moodle.Commenting.InlineComment.SpacingAfter"/>
-
+<rule ref="moodle.Commenting.InlineComment.NoSpaceBefore"/>
+ -->
 </ruleset>

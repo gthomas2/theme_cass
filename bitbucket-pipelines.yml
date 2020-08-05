@@ -13,13 +13,13 @@ pipelines:
              # Branches available v3.8.2 v3.7.5 v3.6.9 3.5.11
              - MOODLE_BRANCH="v3.8.2"
              # Customise ruleset.xml or remove references for full moodle code compliance
-             - cp ruleset.xml moodle
-             - composer global require "squizlabs/php_codesniffer=2.*"
-             - composer global install
-             - composer require --dev "blackboard-open-source/moodle-coding-standard"
-             - export PATH="$HOME:/tmp/vendor/squizlabs/php_codesniffer/scripts/phpcs:$PATH"
-             - /tmp/vendor/squizlabs/php_codesniffer/scripts/phpcs  --config-set  installed_paths /opt/atlassian/pipelines/agent/build/vendor/blackboard-open-source/moodle-coding-standard
-             - /tmp/vendor/squizlabs/php_codesniffer/scripts/phpcs --extensions=php --standard=moodle  moodle/theme/cass
+             # - cp ruleset.xml moodle
+             # - composer global require "squizlabs/php_codesniffer=2.*"
+             # - composer global install
+             # - composer require --dev "blackboard-open-source/moodle-coding-standard"
+             # - export PATH="$HOME:/tmp/vendor/squizlabs/php_codesniffer/scripts/phpcs:$PATH"
+             # - /tmp/vendor/squizlabs/php_codesniffer/scripts/phpcs  --config-set  installed_paths /opt/atlassian/pipelines/agent/build/vendor/blackboard-open-source/moodle-coding-standard
+             # - /tmp/vendor/squizlabs/php_codesniffer/scripts/phpcs --extensions=php --standard=moodle  moodle/theme/cass
          - step:
             name: PHPUnit and Behat
             image: atlassian/default-image:2

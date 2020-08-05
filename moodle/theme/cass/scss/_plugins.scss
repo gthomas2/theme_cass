@@ -48,6 +48,13 @@ a#snap-home {
     }
 }
 
+.sub-theme-cass {
+    &#page-mod-page-mod, &#page-mod-resource-mod {
+        #id_submitbutton {
+            display: inline-block;
+        }
+    }
+}
 
 #page-mod-assign-grading {
     // Style the table to be smaller.

@@ -10,6 +10,12 @@
   }
 }
 
+body.sub-theme-cass {
+  .snap-activity .asset-wrapper .snap-assettype {
+    display: none;
+  }
+}
+
 .path-course-view .section .summary {
   padding-bottom: 1.25em;
 }
@@ -236,13 +242,21 @@ h2.sectionname {
     display: none;
   }
 
-  .activityinstance .snap-asset-link {
-    display: block;
-    font-size: $font-size-lg;
-    display: block;
-    overflow: hidden;
-    @include clearfix();
+  .activityinstance {
+    // Padding between table columns.
+    .contentwithoutlink table {
+      th, td {
+        padding-right: 1rem;
+      }
+    }
+    .snap-asset-link {
+      display: block;
+      font-size: $font-size-lg;
+      display: block;
+      overflow: hidden;
+      @include clearfix();
 
+    }
   }
 }
 

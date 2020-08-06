@@ -3,6 +3,18 @@ a#snap-home {
 }
 
 /**
+ * All mods.
+ */
+.path-mod #region-main div[role="main"]{
+    // Padding between table columns.
+    .no-overflow table {
+        th, td {
+            padding-right: 1rem;
+        }
+    }
+}
+
+/**
  * Mod book.
  */
 .path-mod-book {

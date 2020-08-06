@@ -2092,6 +2092,12 @@ body.path-mod #moodle-footer {
   overflow: visible;
 }
 
+body.sub-theme-cass #region-main {
+  // Undo Snap region-main left and right padding.
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .section li.snap-asset.snap-can-edit .asset-wrapper {
   padding-bottom: 2rem;
   .snap-asset-actions {

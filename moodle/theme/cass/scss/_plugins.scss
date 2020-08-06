@@ -105,3 +105,30 @@ a#snap-home {
  .custom-select:focus {
          border: 1px solid #80bdff;
  }
+
+
+/**
+ * Hsuforum make sure single simple discussion title is shown correctly.
+ */
+body.hsforum-type-single #page.firstactivityinsection {
+    .hsuforum-thread-title {
+        background-color: #8f182e;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin: -80px -50vw 2rem -50vw;
+        min-height: 260px;
+        display: flex;
+        flex-direction: column;
+    }
+    .hsuforum-thread-title h4 {
+        color: white;
+        font-size: 2rem;
+        font-family: "ff-meta-serif-web-pro",Georgia,"Times New Roman",Times,serif;
+        width: 960px;
+        margin: auto auto 0;
+        display: block;
+        margin-bottom: 40px;
+    }
+}

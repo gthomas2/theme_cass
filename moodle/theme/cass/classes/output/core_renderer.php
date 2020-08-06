@@ -34,12 +34,41 @@ use breadcrumb_navigation_node;
 class core_renderer extends \theme_snap\output\core_renderer {
 
     /**
+     * Get the discussion type of a specific discussion's forum.
+     * @param int $discussionid
+     * @return mixed
+     * @throws \dml_exception
+     */
+    private function get_discussion_hsuforum_type(int $discussionid): string {
+        global $DB;
+
+        $sql = "
+            SELECT type
+              FROM {hsuforum} hf
+              JOIN {hsuforum_discussions} hfd ON hfd.forum = hf.id
+             WHERE hfd.id = ?
+        ";
+
+        $forumtype = $DB->get_field_sql($sql, [$discussionid]);
+        return $forumtype;
+    }
+
+    /**
      * Add sub-theme-cass to body class.
      * @param array $additionalclasses
      * @return array|string
      */
     public function body_css_classes(array $additionalclasses = array()) {
         $additionalclasses[] = 'sub-theme-cass';
+
+        if (strpos(qualified_me(), 'mod/hsuforum/discuss.php?d') !== false) {
+            $discussionid = optional_param('d', null, PARAM_INT);
+            if ($discussionid !== null) {
+                $type = $this->get_discussion_hsuforum_type($discussionid);
+                $additionalclasses[] = 'hsforum-type-'.$type;
+            }
+        }
+
         return parent::body_css_classes($additionalclasses);
     }
 

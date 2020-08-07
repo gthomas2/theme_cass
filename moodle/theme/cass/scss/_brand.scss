@@ -1375,7 +1375,7 @@ iframe {
 //  'Next' modal
 // -------------------------
 
-.completion-region .activitycompletemodal {
+.completion-region .modal.activitycompletemodal {
   position: fixed;
   display: none;
   top: auto;
@@ -1384,6 +1384,8 @@ iframe {
   right: -600px; //320
   box-shadow: -3px -4px 15px 0 rgba(0, 0, 0, 0.25);
   background: $modal-bg;
+  width: auto;
+  height: auto;
 }
 
 .activitycompletemodal-content {

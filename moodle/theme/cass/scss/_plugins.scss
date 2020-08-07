@@ -126,7 +126,8 @@ body.hsforum-type-single #page.firstactivityinsection {
         color: white;
         font-size: 2rem;
         font-family: "ff-meta-serif-web-pro",Georgia,"Times New Roman",Times,serif;
-        width: 960px;
+        width: 100%;
+        max-width: 960px;
         margin: auto auto 0;
         display: block;
         margin-bottom: 40px;

@@ -22,20 +22,8 @@ pipelines:
             name: PHPUnit and Behat
             image: atlassian/default-image:2
             script:
-             # Get Moodle (Comment out this block if you want to use MWP)
-             # Branches available v3.8.2 v3.7.5 v3.6.9 3.5.11
-             - MOODLE_BRANCH="v3.8.2"
-             - wget github.com/moodle/moodle/archive/$MOODLE_BRANCH".zip"
-             - unzip -qq $MOODLE_BRANCH".zip"
-
-             # Get MWP (Uncomment from line - wget if you want to use MWP)
-             # Until we get some kind of tagging set up for the repo, we are just going to have to use master with no tags.
-             # This is bad as it means we always get the latest version which might not be appropriate.
-             # Note: The BB_USER and BB_APPPWD variables below are repository variables stored in bitbucket:
-             # https://bitbucket.org/titus-learning/titus-moodle/admin/addon/admin/pipelines/repository-variables
-             # - wget https://$BB_USER:$BB_APPPWD@bitbucket.org/titus-learning/moodle_workplace/get/master.zip
-             # - unzip -qq "master.zip"
-
+             - cmod 755 scripts/ci/getmoodle.php
+             - php scripts/ci/getmoodle.php $BB_USER $BB_APPPWD
              - cp composer.phar moodle
              - cp -R titus-learning-moodle_workplace-*/* moodle
              - cp scripts/ci/packagetests.php moodle/packagetests.php

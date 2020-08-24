@@ -17,15 +17,21 @@ pipelines:
              - composer require --dev "blackboard-open-source/moodle-coding-standard"
              - export PATH="$HOME:/tmp/vendor/squizlabs/php_codesniffer/scripts/phpcs:$PATH"
              - /tmp/vendor/squizlabs/php_codesniffer/scripts/phpcs  --config-set  installed_paths /opt/atlassian/pipelines/agent/build/vendor/blackboard-open-source/moodle-coding-standard
+             # NOTE - uncomment this and add the plugins you want to be sniffed!
              #- /tmp/vendor/squizlabs/php_codesniffer/scripts/phpcs --extensions=php --standard=moodle  moodle/local/yourplugin
          - step:
             name: PHPUnit and Behat
             image: atlassian/default-image:2
             script:
-             - cmod 755 scripts/ci/getmoodle.php
-             - php scripts/ci/getmoodle.php $BB_USER $BB_APPPWD
+             - apt-get update && apt-get install -y
+             - apt-get install jq -y
+             - chmod 755 scripts/ci/getmoodle.sh
+             - scripts/ci/getmoodle.sh $BB_USER $BB_APPPWD
+             # This is seriously bad but without changing to 777, the moodle docker web server can't
+             # run composer and populate the vendor folder.
+             - chmod 777 -R moodle
+             - ls -all
              - cp composer.phar moodle
-             - cp -R titus-learning-moodle_workplace-*/* moodle
              - cp scripts/ci/packagetests.php moodle/packagetests.php
              - cp package.json moodle/project_package.json
              - chmod 755 moodle/packagetests.php

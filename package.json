@@ -2,10 +2,11 @@
   "name": "titus-moodle",
   "version": "1.0.0",
   "moodle": {
+    "_flavour": "MWP or moodle",
+    "flavour": "moodle",
     "branch": 38,
     "tag": "latest-38",
     "plugins": [
-      "local/tlcore"
     ]
   },
   "scripts": {

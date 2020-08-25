@@ -22,6 +22,7 @@ Instead, you need to modify package.json to tell it what plugins you will be com
       "name": "titus-moodle",
       "version": "1.0.0",
       "moodle": {
+        "flavour": "MWP",
         "branch": 38,
         "tag": "latest-38",
         "plugins": [
@@ -68,3 +69,27 @@ see local/tlcore/README.md for more details.
 ## IMPORTANT NOTE FOR DEVS
 DO NOT merge other project branches into this master branch.
 This branch should just contain the bare-bones for titus project branches to start off from. For setting up CI see https://tituslearning.atlassian.net/wiki/spaces/DEV/pages/63177149/CI+setup
+
+## CI - package.json
+By default bitbucket-pipelines.yml is configured to automatically run
+all php unit tests for ALL the plugins specified in the package.json plugins
+section. If you wish to exclude a specific plugin or plugins please use the
+phpunit_blocklist section as shown below.
+
+    {
+      "name": "titus-moodle",
+      "version": "1.0.0",
+      "moodle": {
+        "flavour": "MWP",
+        "branch": 38,
+        "tag": "latest-38",
+        "plugins": [
+          "local/tlcore",
+          "blocks/ace"
+        ],
+        "phpunit_blocklist": [
+          "auth/saml2"
+        ]
+      },
+      .....
+    }

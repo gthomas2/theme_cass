@@ -2073,7 +2073,7 @@ img.smallicon.navicon {
     }
   }
 }
-.collapse:not(.in) {
+.collapse:not(.in):not(.show) {
   height: 1.5em !important;
   display: block;
   overflow: hidden;

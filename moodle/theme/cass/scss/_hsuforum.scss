@@ -2,29 +2,33 @@
 // Open forums (hsu forum).
 */
 .path-mod-hsuforum {
-    // Want to hide stuff? Put it here!
+      // Want to hide stuff? Put it here!
 
-   // Hide lots of the original poster details.
-  .hsuforum-thread-author,
-  .hsuforum-thread-title time,
-  .hsuforum-thread-meta,
-  // Posts display - hide lots of things.
-  // Hide attchments box.
-  .editor-attachments,
-  // Hide link to advanced editor & options
-  .hsuforum-use-advanced,
-  .advancedoptions,
-  // Hide filter, search, manage subscriptions.
-  #hsuforum-filter-options,
-  .hsuforum-search,
-  .managesubslink,
-  // Hide post numbering.
-  .hsuforum-post:before,
-  // Hide reply field subject.
-  .hsuforum-reply-wrapper input[name='subject'],
-   {
-      display: none;
-  }
+     // Hide lots of the original poster details.
+    .hsuforum-thread-author,
+    .hsuforum-thread-title time,
+    .hsuforum-thread-meta,
+    // Posts display - hide lots of things.
+    // Hide attchments box.
+    .editor-attachments,
+    // Hide link to advanced editor & options
+    .hsuforum-use-advanced,
+    .advancedoptions,
+    // Hide filter, search, manage subscriptions.
+    #hsuforum-filter-options,
+    .hsuforum-search,
+    .managesubslink,
+    // Hide post numbering.
+    .hsuforum-post:before {
+        display: none;
+    }
+}
+
+// Hide reply field subject.
+.hsuforum-thread-replies, .hsuforum-footer-reply {
+    .hsuforum-reply-wrapper input[name='subject'] {
+        display: none;
+    }
 }
 
 .hsuforum-thread-replies {

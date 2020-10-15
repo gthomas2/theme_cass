@@ -670,21 +670,6 @@ input[value="Next"] {
   padding-top: 2em;
 }
 
-input[type="radio"] + label:before {
-  content: '';
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  vertical-align: -.5em;
-  border: 0.2em solid #fbfbfb;
-  border-radius: 1em;
-  box-shadow: 0 0 0 0.1em #999;
-  margin: 0 0.75em .35em 0;
-  transition: 0.5s ease all;
-}
-input[type="radio"] {
-  display: none;
-}
 .path-mod-feedback input[type="radio"] {
   display: inline-block;
 }
@@ -925,6 +910,10 @@ button:disabled {
   margin-bottom: -1px !important;
   margin-top: 1em;
 
+}
+
+.sub-theme-cass .btn.btn-secondary i.icon {
+  color: white;
 }
 
 img.questioncorrectnessicon {

@@ -2164,3 +2164,7 @@ body.sub-theme-cass #region-main {
   background-color: transparent !important;
   border: none !important;
 }
+
+body.sub-theme-cass.pagelayout-admin #region-main {
+    padding: 2em;
+}

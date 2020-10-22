@@ -1,13 +1,24 @@
-.theme-snap {
-  #course-toc #chapters {
-    list-style: decimal;
-  }
+.path-course-view #page-header h1 {
+    display: none;
 }
 
 .format-topics {
-  li.section .sectionname:before {
-    content: none;
-  }
+    li.section .sectionname:before {
+        content: none;
+    }
+}
+
+.course-content {
+    max-width: $cass-width;
+}
+
+.sectionname {
+    font-size: 3.5em;
+    line-height: 1em;
+    color: black;
+    font-weight: 700;
+    padding-bottom: 1em;
+    padding-top: 0;
 }
 
 body.sub-theme-cass {
@@ -37,7 +48,7 @@ body.sub-theme-cass {
   margin: 0;
   font-size: inherit;
   line-height: inherit;
-  font-family: $font-family-fancy !important;
+  font-family: $font-family-feature !important;
 
   &:hover,
   &:focus {
@@ -46,7 +57,7 @@ body.sub-theme-cass {
   }
 }
 
-.col-sm-6.snap-modchooser {
+.snap-modchooser {
   padding-top: 1em;
 }
 
@@ -225,10 +236,6 @@ li.unavailable h4 {
   margin: 0;
 }
 
-h2.sectionname {
-  line-height: 1em;
-}
-
 .section li.snap-activity {
   background-image: none;
   width: 99%; // to allow for box-shadow faux border
@@ -279,7 +286,7 @@ a.snap-assignment-stage.label.label-warning {
 .snap-grouping-tag {
   text-align: inherit;
   margin-left: -0.4em;
-  font-family: $font-family-fancy;
+  font-family: $font-family-feature;
 }
 
 .snap-asset-completion-tracking {
@@ -310,7 +317,7 @@ a.snap-assignment-stage.label.label-warning {
   color: $modal-bg;
   a {
     color: $modal-bg;
-    font-family: $font-family-fancy;
+    font-family: $font-family-feature;
   }
 }
 

@@ -277,7 +277,7 @@ button:disabled {
 
   .generalfeedback p {
     #region-main &{
-      font-family: $font-family-fancy;
+      font-family: $font-family-feature;
     }
   }
 }
@@ -357,7 +357,7 @@ h3.qtype {
     padding: 1em 1.618em;
     margin: 0 0 5em 0 !important;
     border-radius: .618em;
-    font-family: $font-family-fancy;
+    font-family: $font-family-feature;
     border: 1px solid;
     font-size: 1em;
     background: $gray-lighter;
@@ -372,7 +372,7 @@ h3.qtype {
     display: table-caption;
     padding-bottom: .4em;
     margin-left: -2px;
-    font-family: $font-family-fancy;
+    font-family: $font-family-feature;
   }
   .specificfeedback {
     display: none;
@@ -406,7 +406,7 @@ h3.qtype {
     color: $gray-dark;
     line-height: 1em;
     font-weight: bold;
-    font-family: $font-family-fancy;
+    font-family: $font-family-feature;
     padding: 0 0 1.5em;
   }
 

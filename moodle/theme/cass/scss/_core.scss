@@ -27,7 +27,7 @@ img.snap-logo {
 #page-login-signup {
   .lang-en #moodle-footer {
     margin-top: 0;
-    font-family: $font-family-fancy;
+    font-family: $font-family-feature;
     font-size: .8em;
     color: $gray-light;
     text-align: left;
@@ -377,7 +377,7 @@ body:not(.pagelayout-coursecategory) {
 
 .next_activity_link {
   margin: 0 auto;
-  font-family: $font-family-fancy;
+  font-family: $font-family-feature;
   max-width: 960px;
   padding: 0 10px;
 }
@@ -948,7 +948,7 @@ ol.breadcrumb > li {
 
               p {
                 margin: 0 !important;
-                font-family: $font-family-fancy !important;
+                font-family: $font-family-feature !important;
               }
             }
 
@@ -1966,31 +1966,6 @@ label .m-l-1 {
 #page-course-view-weeks ol.chapters li:first-child {
   list-style-type: none;
 }
-
-@media (min-width: 979px) {
-  #page-course-view-weeks, #page-course-view-topics {
-    #snap-course-wrapper {
-      > .row {
-        justify-content: space-between;
-        .col-lg-3, col-lg-9 {
-          margin: 0;
-          padding: 0;
-        }
-        .col-lg-3 {
-          top: 0;
-          flex: 0 0 29.0966%;
-          max-width: 29.0966%;
-        }
-        .col-lg-9 {
-          flex: 0 0 61.8034%;
-          max-width: 61.8034%;
-        }
-      }
-    }
-  }
-}
-
-
 
 #snap-pm-courses .snap-personal-menu-more {
   display: none;

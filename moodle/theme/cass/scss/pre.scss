@@ -31,8 +31,7 @@ $modal-bg:              #fff;
 $font-family-base:         "ff-meta-web-pro", Helvetica, Arial, sans-serif !default;
 $font-family-system:      $font-family-base;
 $font-family-sans-serif:  $font-family-base;
-$font-family-fancy:       "ff-meta-serif-web-pro", Georgia, "Times New Roman", Times, serif;
-$font-family-feature:     $font-family-fancy;
+$font-family-feature:     "ff-meta-serif-web-pro", Georgia, "Times New Roman", Times, serif;
 
 $breadcrumb-divider: "|";
 
@@ -76,4 +75,4 @@ $nav-login-color:                   $nav-button-color;
 }
 
 // A smaller - 45-75 char per line, container width for CASS.
-$cass-width: 43.5em;
+$cass-width: 35em;

@@ -78,6 +78,7 @@ $string['ihavecompletedthisactivity'] = 'I have completed this activity';
 $string['logoutredirection'] = "Logout redirection. ";
 $string['logoutredirectiondesc'] = "Users of this theme will be redirected to the specified URL. Leave blank for default.";
 
+$string['markascomplete'] = 'Mark as complete';
 $string['navigationheading'] = 'Navigation';
 $string['navigationheadingdesc'] = '';
 $string['nextactivity'] = 'Next Activity';

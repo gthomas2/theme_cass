@@ -84,7 +84,7 @@ class renderer extends \renderer_base {
         // but we do want to potentially show the next activity in the footer.
         if ($mod) {
             if (isset($mod->completion) && intval($mod->completion) === COMPLETION_TRACKING_MANUAL) {
-                if ($nextactivityinfooter) {
+                if ($nextactivityinfooter && strpos($PAGE->url, '/course/modedit.php') === false) {
                     $showcompletionnextactivity = true;
                 }
             } else {
@@ -121,7 +121,7 @@ class renderer extends \renderer_base {
                 }
 
                 // Check theme setting on whether to display the next activity in the footer
-                if ($nextactivityinfooter) {
+                if ($nextactivityinfooter && strpos($PAGE->url, '/course/modedit.php') === false) {
                     $showcompletionnextactivity = true;
                 }
 
@@ -252,64 +252,33 @@ class renderer extends \renderer_base {
         }
 
         if ($showcompletionmodal && !in_array($mod->modname, self::EXCLUDE_POPUP_MODS)) {
-
-            // html_writer is a completely tedious abstraction.
-            // But... do as we must... I suppose...
-
-            // The above comment is from the past when Moodle didn't have templates.
-            // TODO - move this lot to a template at some point.
-
-            // no support for html comments.
-            $output .= '<!-- Modal -->';
-
-            $output .= html_writer::span('', 'darkBackgroundStyle', array('id' => 'darkBackground'));
-
-            $output .= html_writer::span(
-                html_writer::span('', 'activity-complete fa fa-check') .
-                html_writer::span(get_string('activitycomplete', 'theme_cass'), 'activity-complete-text')
-                , 'boxStyle', array('id' => 'alertBox')
-            );
-
-            $output .= html_writer::start_div('modal fade activitycompletemodal', array('id' => 'activitycompletemodal', 'role' => 'dialog'));
-            //$output .= html_writer::start_div('modal-dialog');
-            $output .= '<!-- Modal content -->';
-
-            $output .= html_writer::start_div('modal-content activitycompletemodal-content');
-            $output .= html_writer::start_div('modal-body activitycompletemodal-body moodle-dialogue-base');
-            $output .= html_writer::start_span('yui3-widget-buttons');
-
-            $output .= html_writer::tag('button','', array(
-                    'class' => 'yui3-button closebutton completeclose',
-                    'data-dismiss' => 'modal')
-            );
-            $output .= html_writer::end_span();
-
-            $output .= html_writer::tag('h4', get_string('continuenextactivity', 'theme_cass'), array('class' => 'modal-title activitycompletemodal-title'));
-
-            $output .= html_writer::tag('p', $completiontext .
-                html_writer::span($forwardlinkname, 'activitycompletenextmodname'));
-
-            $output .= html_writer::end_div();
-
-            $output .= html_writer::div(
-                html_writer::link($forwardlinkurl, $forwardlinktext .
-                    html_writer::span('', 'glyphicon glyphicon-arrow-right', array('aria-hidden' => 'true'))
-                    , array('class' => 'activitycompletenextmodlink'))
-                , 'modal-footer activitycompletemodal-footer');
-
-            $output .= html_writer::end_div();
-            //$output .= html_writer::end_div();
-            $output .= html_writer::end_div();
+            $data = [
+                'completiontext' => $completiontext,
+                'forwardlinkurl' => $forwardlinkurl.'',
+                'forwardlinktext' => $forwardlinktext,
+                'forwardlinkname' => $forwardlinkname
+            ];
+            $output .= $this->render_from_template('theme_cass/completionmodal', $data);
 
             $PAGE->requires->js_call_amd('theme_cass/cass', 'addPopCompletion', [$mod]);
         }
 
         if ($showcompletionnextactivity) {
-            if  (in_array($mod->modname, self::EXCLUDE_POPUP_MODS) && !$this->module_is_complete($mod)) {
-                $output .= '<div class="next_activity_area"><div class="next_activity_overlay"><div><h5>Confirm as Complete</h5><button data-cmid="'.$mod->id.'" class="btn btn-primary completeclick">I have completed this activity</button></div></div><div class="next_activity_link"><div class="activity-complete"><span class="activity-complete fa fa-check"></span><div class="done">Activity complete</div></div><div class="next_activity_text"> <a class="next_activity" href="' . $forwardlinkurl . '"><div class="nav_icon"><i class="icon-arrow-right"></i></div><span class="text"><span class="nav_guide">' . $forwardlinktext . '</span><br>' . $forwardlinkname . '</span></a></div></div></div>';
-            } else {
-                $output .= '<div class="next_activity_area"><div class="next_activity_link"><div class="activity-complete"><span class="activity-complete fa fa-check"></span><div class="done">Activity complete</div></div><div class="next_activity_text"> <a class="next_activity" href="' . $forwardlinkurl . '"><div class="nav_icon"><i class="icon-arrow-right"></i></div><span class="text"><span class="nav_guide">' . $forwardlinktext . '</span><br>' . $forwardlinkname . '</span></a></div></div></div>';
-            }
+            $manualcomp = intval($mod->completion) === COMPLETION_TRACKING_MANUAL;
+            $modexcludepopup = in_array($mod->modname, self::EXCLUDE_POPUP_MODS);
+            $showoverlay = ($manualcomp || $modexcludepopup) && !$this->module_is_complete($mod);
+
+            $data = (object) [
+                'completiontext' => $completiontext,
+                'forwardlinkurl' => $forwardlinkurl.'',
+                'forwardlinktext' => $forwardlinktext,
+                'forwardlinkname' => $forwardlinkname,
+                'modid' => $mod->id,
+                'showoverlay' => $showoverlay
+            ];
+            $json = json_encode($data);
+            $data->compjson = $json;
+            $output .= $this->render_from_template('theme_cass/nextactivityarea', $data);
         }
 
         //'completion-region'

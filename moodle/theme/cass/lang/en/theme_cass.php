@@ -73,6 +73,8 @@ $string['hidequiznavigationdesc'] = "When this setting is enabled, the quiz navi
 $string['highlightfirstactivityinsection'] = 'Highlight first activity in section';
 $string['highlightfirstactivityinsectiondesc'] = 'Visual signal to indicate to the user that they are on the first activity in the section';
 
+$string['ihavecompletedthisactivity'] = 'I have completed this activity';
+
 $string['logoutredirection'] = "Logout redirection. ";
 $string['logoutredirectiondesc'] = "Users of this theme will be redirected to the specified URL. Leave blank for default.";
 

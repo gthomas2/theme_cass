@@ -21,7 +21,8 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-define(['jquery', 'core/ajax', 'theme_cass/breadcrumb'], function($, ajax, breadcrumb) {
+define(['jquery', 'core/ajax', 'theme_cass/breadcrumb', 'core/templates', 'theme_snap/util'],
+    function($, ajax, breadcrumb, Templates, Util) {
 
     return new function() {
 
@@ -69,19 +70,24 @@ define(['jquery', 'core/ajax', 'theme_cass/breadcrumb'], function($, ajax, bread
                 $(".next_activity_overlay").fadeTo("slow", 0, function() {
                     $(this).hide();
                 });
-                var $aBox = $("#alertBox");
-                var $darkBg = $("#darkBackground");
-                TweenMax.to($darkBg,  0,   {display: "block"});
-                TweenMax.to($darkBg,  0.3, {background: "rgba(0,0,0,0.4)", force3D: true});
-                TweenMax.to($aBox,    0,   {left: "calc(50% - 150px)", top: "calc(50% - 150px)", delay: "0.2"});
-                TweenMax.to($aBox,    0,   {display: "block", opacity: 1, delay: "0.2"});
-                TweenMax.to($aBox,    0,   {display: "block", scale: 0.2, opacity: 0, delay: "0.2"});
-                TweenMax.to($aBox,    0.3, {opacity: 1, force3D: true, delay: "0.2"});
-                TweenMax.to($aBox,    0.3, {scale:1, force3D: true, delay: "0.2"});
-                TweenMax.to($darkBg,  0.2, {backgroundColor: "rgba(0,0,0,0)", force3D: true, delay: "2"});
-                TweenMax.to($darkBg,  0.2, {display: "none", force3D: true, delay: "2"});
-                TweenMax.to($aBox,    0.2, {opacity: 0, display: "none", force3D: true, delay: "2",
-                    onComplete: slideNextActivity});
+                Util.whenTrue(
+                    () => {return $("#alertBox").length && $("#darkBackground").length;},
+                    function() {
+                        var $aBox = $("#alertBox");
+                        var $darkBg = $("#darkBackground");
+                        TweenMax.to($darkBg,  0,   {display: "block"});
+                        TweenMax.to($darkBg,  0.3, {background: "rgba(0,0,0,0.4)", force3D: true});
+                        TweenMax.to($aBox,    0,   {left: "calc(50% - 150px)", top: "calc(50% - 150px)", delay: "0.2"});
+                        TweenMax.to($aBox,    0,   {display: "block", opacity: 1, delay: "0.2"});
+                        TweenMax.to($aBox,    0,   {display: "block", scale: 0.2, opacity: 0, delay: "0.2"});
+                        TweenMax.to($aBox,    0.3, {opacity: 1, force3D: true, delay: "0.2"});
+                        TweenMax.to($aBox,    0.3, {scale:1, force3D: true, delay: "0.2"});
+                        TweenMax.to($darkBg,  0.2, {backgroundColor: "rgba(0,0,0,0)", force3D: true, delay: "2"});
+                        TweenMax.to($darkBg,  0.2, {display: "none", force3D: true, delay: "2"});
+                        TweenMax.to($aBox,    0.2, {opacity: 0, display: "none", force3D: true, delay: "2",
+                            onComplete: slideNextActivity});
+                    }
+                );
             });
         };
 
@@ -148,11 +154,19 @@ define(['jquery', 'core/ajax', 'theme_cass/breadcrumb'], function($, ajax, bread
                     {
                         methodname: 'theme_snap_course_module_completion',
                         args: {id: cmid, completionstate: 1},
-                        done: function() {
-                            popCompletion();
-                        },
                         fail: function(response) {
                             window.console.error(response);
+                        },
+                        done: function() {
+                            const data = $('.next_activity_area').data('completion');
+                            if (data) {
+                                Templates.render('theme_cass/completionmodal', data)
+                                    .then(function(output) {
+                                        // Add template output to page.
+                                        $('.completion-region').append(output);
+                                    });
+                            }
+                            popCompletion();
                         }
                     }
                 ], true, true);

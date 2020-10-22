@@ -64,20 +64,6 @@ body {
   background: $brand-primary;
 }
 
-#page-mod-quiz-attempt,
-#page-mod-quiz-review {
-  select:disabled,
-  input:disabled,
-  input:disabled + label {
-    opacity: 1;
-  }
-}
-
-#page-mod-quiz-attempt .text-success {
-  color: $brand-green !important;
-  margin-bottom: 5px !important;
-}
-
 .green, .notifysuccess, .connected {
   color: $brand-green !important;
   margin-bottom: 5px !important;
@@ -321,48 +307,6 @@ ol.breadcrumb {
   padding: 0 3.444%;
 }
 
-#page-mod-quiz-edit div.reorder {
-  div.question div.content {
-    width: calc(100% - 4.3em);
-  }
-}
-
-.que {
-  margin: 0 !important;
-}
-
-#region-main {
-  .que .info,
-  .que .content {
-    background-color: transparent;
-    border: 0;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    float: none;
-  }
-}
-
-
-// Adding region main to overwite boost extend alert on quiz elements.
-#region-main {
-  .que .formulation,
-  .formulation .incorrect,
-  .formulation .correct {
-    padding: 1rem 0;
-  }
-}
-
-.que .qtext {
-  font-size: inherit;
-}
-
-.que.multichoice .answer div.r0,
-.que.multichoice .answer div.r1 {
-  padding: .3em 0 0.3em 40px !important;
-  text-indent: -40px;
-}
-
 // -------------------------
 // Reduce font sizes on small screen
 // -------------------------
@@ -482,13 +426,9 @@ input[name=previous] {
   position: absolute;
 }
 
-.box.quizattempt {
-  padding-bottom: 6.18%;
-}
-
 .next_activity_overlay {
-  background: #888;
-  padding: 0;
+  background: white;
+  padding: 2em 0;
   margin-top: 1px;
   z-index: 50;
   width: 100%;
@@ -497,14 +437,16 @@ input[name=previous] {
   top: 0;
   left: 0;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div {
+    flex: 0 0 100%;
+  }
 }
 
 .next_activity_overlay h5 {
   color: white;
-}
-
-div#mod_quiz_navblock .content {
-  display: none;
 }
 
 ol.breadcrumb > li {
@@ -2062,16 +2004,6 @@ label .m-l-1 {
   color: #fff !important;
 }
 
-// Make the manual completion area nicer:
-.next_activity_overlay {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  > div {
-    flex: 0 0 100%;
-  }
-}
-
 body.path-mod #moodle-footer {
   margin-top: 0;
 }
@@ -2083,12 +2015,8 @@ body.path-mod #moodle-footer {
 #region-main {
   width: 100%;
   float: none !important;
-  max-width: 960px;
   border: none;
   background-color: unset;
-  .course-content {
-    max-width: none;
-  }
   overflow: visible;
 }
 

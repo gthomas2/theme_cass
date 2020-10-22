@@ -1,4 +1,4 @@
-$font-size-root: 20px;
+$font-size-root: 21px;
 
 $font-size-h1:            floor($font-size-root * 3);
 $font-size-h2:            floor($font-size-root * 2.6);
@@ -74,3 +74,6 @@ $nav-login-color:                   $nav-button-color;
   $nav-login-color:                 $nav-bg;
   $nav-login-bg:                    $nav-button-color;
 }
+
+// A smaller - 45-75 char per line, container width for CASS.
+$cass-width: 43.5em;

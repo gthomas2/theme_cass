@@ -193,6 +193,12 @@ h4.snap-asset-link {
   }
 }
 
+// Resticted activies that are not clickable output the title twice.
+// Hide it in the activity instance.
+.sub-theme-cass .activityinstance .snap-asset-link > * {
+  display: none;
+}
+
 .unavailable .snap-asset-link:before {
   background: $gray-light;
 }

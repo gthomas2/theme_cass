@@ -23,6 +23,8 @@ define(['jquery'], function($) {
                 if (titleObjects.length != 0) {
                     var theBigTitle = titleObjects[0];
                     theBigTitleText = theBigTitle.text().trim();
+                } else {
+                    return;
                 }
 
                 // First item in the breadcrumb trail with the same title.

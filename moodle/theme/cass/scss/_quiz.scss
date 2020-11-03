@@ -1,0 +1,423 @@
+//
+// Quiz styles.
+//
+
+// Hide footer in quiz attempt.
+#page-mod-quiz-attempt {
+  #moodle-footer {
+    display: none;
+  }
+}
+
+.path-mod-quiz {
+  .que .formulation,
+  .formulation .incorrect,
+  .formulation .correct {
+    padding: 1rem 0;
+  }
+  // qnbutton is part of the fake block quick navigation, whihc is not used in the theme...
+  .qnbutton {
+    position: relative;
+    float: left;
+    height: 2.5em;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 2.5em !important;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0;
+  }
+
+  .qnbutton.thispage .thispageholder {
+    border: none;
+  }
+
+  .qnbutton.thispage {
+    border: none;
+  }
+
+  .qnbutton {
+    &.blocked,
+    &.notyetanswered,
+    &.requiresgrading,
+    &.invalidanswer {
+      background: none;
+    }
+  }
+
+  .qnbutton {
+    display: none;
+    border-color: transparent;
+    padding: 0;
+  }
+
+  .qnbutton:last-child {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: inherit;
+  }
+
+  .qnbutton.notanswered .trafficlight,
+  .qnbutton.incorrect .trafficlight,
+  .qnbutton.correct .trafficlight {
+    border-color: transparent;
+    border-bottom: none;
+  }
+
+  .que .info,
+  .que .content {
+    background-color: transparent;
+    border: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    float: none;
+  }
+
+  // Feedback for answering question.
+  .que .outcome {
+    padding: 0 !important;
+    border: none;
+    margin-bottom: -1px !important;
+    margin-top: 1em;
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: transparent !important;
+    position: static;
+  }
+}
+
+#page-mod-quiz-attempt,
+#page-mod-quiz-review {
+  text-align: center;
+
+  #region-main {
+    max-width: $cass-width;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0 1em;
+    width: 100%;
+  }
+
+  select:disabled,
+  input:disabled,
+  input:disabled + label {
+    opacity: 1;
+  }
+  .text-success {
+    color: $brand-green !important;
+    margin-bottom: 5px !important;
+  }
+
+  .essay {
+    + .submitbtns {
+      display: block;
+      margin-top: 0;
+    }
+  }
+
+  .progress {
+    overflow: hidden;
+    height: 32px;
+    margin-bottom: 0;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    color: $gray-light;
+    text-align: right;
+  }
+
+  .submitbtns  {
+    clear: left;
+    text-align: left;
+    padding-top: 1.5em;
+    float: right;
+    margin-top: -126px;
+    animation: fadein 2s forwards;
+  }
+
+  #moodle-blocks {
+    max-width: 300px;
+    display: inline-block;
+    float: left;
+    padding: 0 0 0 40px;
+    height: 0;
+    text-align: left;
+  }
+}
+
+.que .qtext {
+  font-size: inherit;
+}
+
+.que.multichoice .answer div.r0,
+.que.multichoice .answer div.r1 {
+  padding: .3em 0 0.3em 40px !important;
+  text-indent: -40px;
+}
+
+div#mod_quiz_navblock {
+  display: none;
+}
+span#mod_quiz_navblock_title {
+  display: none;
+}
+
+/**
+* Mod quiz selects.
+*/
+.custom-select:focus {
+  border: 1px solid #80bdff;
+}
+
+.box.quizattempt {
+  padding-bottom: 6.18%;
+}
+
+#page-mod-quiz-edit div.reorder {
+  div.question div.content {
+    width: calc(100% - 4.3em);
+  }
+}
+
+.que {
+  margin: 0 !important;
+}
+
+.qn_buttons.clearfix.multipages {
+  display: none;
+}
+
+.que.immediatefeedback {
+  border-bottom-color: transparent;
+  padding-bottom: 0;
+}
+
+.que .im-controls {
+  margin-top: 1em;
+  margin-bottom: 7.6em;
+}
+
+.que .content {
+  margin: 0;
+}
+
+.que .content {
+  margin: 0;
+}
+
+.info {
+  .state,
+  .grade,
+  .questionflag {
+    display: none !important;
+  }
+}
+
+.qnbutton.thispage:before {
+  content: "Question ";
+}
+
+.qnbutton.thispage:after{
+  content: " of\0000a0";
+}
+
+.qn_buttons .qnbutton.thispage {
+  display: block;
+  background: transparent;
+  width: inherit;
+  border: none;
+}
+body#page-mod-quiz-review .que h3.no {
+  font-size: 1.3em;
+  padding: 0;
+  margin: 0;
+}
+
+body#page-mod-quiz-review .questionflag {
+  display: none;
+}
+
+.que:before {
+  padding-bottom: 1em;
+  font-size: 2em;
+  font-family: FF-Meta-Web-Pro, Arial, sans-serif;
+}
+
+.correct .im-controls,
+.incorrect .im-controls {
+  display: none;
+}
+
+input[type=submit]:disabled,
+button:disabled {
+  display: none;
+}
+
+.path-mod .incorrect .feedback {
+  background: $brand-warning;
+
+}
+.path-mod .correct .feedback {
+  background: $brand-green;
+}
+
+.que .feedback {
+  padding: 2.618em 310% 3.9em;
+  margin: -1px -310% !important;
+  min-height: 200px;
+  font-size: 1.2em;
+  animation: fadein 2s;
+  font-family: $font-family-base;
+  background: $brand-info;
+  color: #fff;
+
+  .generalfeedback p {
+    #region-main &{
+      font-family: $font-family-feature;
+    }
+  }
+}
+
+.que .ablock {
+  margin: 1em 0 1.618em 0;
+}
+
+.correct .rightanswer {
+  display: none;
+}
+
+
+
+img.questioncorrectnessicon {
+  height: 1em;
+  margin: 0 .618em 0 0;
+}
+
+//Getting the padding to work when there is no feedback
+
+.que .formulation {
+  padding-bottom: 4em;
+}
+
+h3.qtype {
+  margin-top: 0;
+  padding: 0 0 .3em;
+  line-height: 1.2em;
+}
+
+// Fill in the blanks answer styles.
+#region-main .formulation {
+  select.incorrect,
+  input.incorrect {
+    appearance: none;
+    color: #C9282D;
+    border-bottom: #C9282D 2px solid;
+    border-radius: 0;
+    background: none;
+    width: auto;
+    max-width: 100%;
+    padding: 0 .5em;
+  }
+
+  select.correct,
+  input.correct {
+    appearance: none;
+    color: #6C953C;
+    border-bottom: #6C953C 2px solid;
+    border-radius: 0;
+    background: none;
+    width: auto;
+    max-width: 100%;
+    padding: 0 .5em;
+  }
+}
+
+//Quiz navigation
+
+
+
+.path-mod-quiz .qnbutton.thispage:last-child:before {
+  content: "Last question of ";
+}
+
+.path-mod-quiz .qnbutton.thispage:last-child:after {
+  content: "";
+}
+
+.notyetanswered + .submitbtns {
+  display: none;
+}
+
+#page-mod-quiz-review {
+  .que .feedback {
+    padding: 1em 1.618em;
+    margin: 0 0 5em 0 !important;
+    border-radius: .618em;
+    font-family: $font-family-feature;
+    border: 1px solid;
+    font-size: 1em;
+    background: $gray-lighter;
+    border-color: darken($gray-lighter, 7%) !important;
+    color: $gray-dark;
+  }
+
+  table.generaltable.generalbox.quizreviewsummary:before {
+    content: "Quiz results";
+    font-size: 52px;
+    width: 100%;
+    display: table-caption;
+    padding-bottom: .4em;
+    margin-left: -2px;
+    font-family: $font-family-feature;
+  }
+  .specificfeedback {
+    display: none;
+  }
+
+  table.quizreviewsummary th.cell {
+    padding: 0 .5em 0em 0em;
+    font-weight: 700;
+    text-align: right;
+    width: 10em;
+    background: transparent;
+    line-height: inherit;
+    border: none;
+  }
+
+  .submitbtns {
+    display: none;
+  }
+
+  table.quizreviewsummary td.cell {
+    padding: 0 .5em 0em 1em;
+    text-align: left;
+    background: transparent;
+    line-height: inherit;
+    border: none;
+  }
+
+  .progress {
+    font-size: 1.5em;
+    text-align: left;
+    color: $gray-dark;
+    line-height: 1em;
+    font-weight: bold;
+    font-family: $font-family-feature;
+    padding: 0 0 1.5em;
+  }
+
+  h3.qtype {
+    display: none;
+  }
+
+  .generaltable {
+    margin-bottom: 7em;
+    > tbody > tr:nth-of-type(odd) {
+      background-color: transparent;
+    }
+  }
+}

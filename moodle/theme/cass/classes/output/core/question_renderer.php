@@ -90,8 +90,8 @@ class question_renderer extends \core_question_renderer {
         $questiontype = $qa->get_question()->qtype;
 
         $languagestring = 'questionsemanticactivation-' . $questiontype->name();
-        if (get_string_manager()->string_exists($languagestring, 'theme_snap')) {
-            $title =  get_string($languagestring, 'theme_snap');
+        if (get_string_manager()->string_exists($languagestring, 'theme_cass')) {
+            $title =  get_string($languagestring, 'theme_cass');
         }
 
         if (empty($title)) $title = $questiontype->menu_name();

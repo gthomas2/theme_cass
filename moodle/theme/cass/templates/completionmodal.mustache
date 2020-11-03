@@ -1,0 +1,28 @@
+<!--Modal -->
+<span class="darkBackgroundStyle" id="darkBackground"></span>
+<span class="boxStyle" id="alertBox">
+    <span class="activity-complete fa fa-check"></span>
+    <span class="activity-complete-text">{{#str}}activitycomplete, theme_cass{{/str}}</span>
+</span>
+
+<div class="modal fade activitycompletemodal" id="activitycompletemodal" role="dialog">
+    <!-- Modal content -->
+    <div class="modal-content activitycompletemodal-content">
+        <div class="modal-body activitycompletemodal-body moodle-dialogue-base">
+            <span class="yui3-widget-buttons">
+                <button class="yui3-button closebutton completeclose" data-dismiss="modal"></button>
+            </span>
+            <h4 class="modal-title activitycompletemodal-title">{{#str}}continuenextactivity, theme_cass{{/str}}</h4>
+            <p>{{completiontext}}</p>
+            <span class="activitycompletenextmodname">{{forwardlinkname}}</span>
+        </div>
+    </div>
+
+
+    <div class="modal-footer activitycompletemodal-footer">
+        <a href="{{{forwardlinkurl}}}" class="activitycompletenextmodlink">
+            {{forwardlinktext}}
+            <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+        </a>
+    </div>
+</div>

@@ -346,11 +346,8 @@ class course_renderer extends snap_course_renderer {
                 $activitycurrent = ' snap-activity-current';
             }
 
-            // Activity/resource type.
-            $snapmodtype = $this->get_mod_type($mod)[0];
-            $assetlink = '<div class="snap-assettype">'.$snapmodtype.'</div>';
             // Asset link.
-            $assetlink .= '<h4 class="snap-asset-link' . $activitycurrent . '">'.$cmname.'</h4>';
+            $assetlink = '<h4 class="snap-asset-link' . $activitycurrent . '">'.$cmname.'</h4>';
         }
 
         // Append everything together
@@ -1016,8 +1013,6 @@ class course_renderer extends snap_course_renderer {
 
         $target = '';
 
-        $activityimg = "<img class='iconlarge activityicon' alt='' role='presentation'  src='".$mod->get_icon_url()."' />";
-
         // Multimedia mods we want to open in the same window.
         $snapmultimedia = $this->snap_multimedia();
 
@@ -1042,14 +1037,14 @@ class course_renderer extends snap_course_renderer {
 
         if ($mod->uservisible) {
             if (!$url) {
-                $output .= "$activityimg<span class='instancename'>$instancename</span>" . $groupinglabel;
+                $output .= "<span class='instancename'>$instancename</span>" . $groupinglabel;
             } else {
-                $output .= "<a $target  href='$url'>$activityimg<span class='instancename'>$instancename</span></a>" . $groupinglabel;
+                $output .= "<a $target  href='$url'><span class='instancename'>$instancename</span></a>" . $groupinglabel;
             }
         } else {
             // We may be displaying this just in order to show information
             // about visibility, without the actual link ($mod->uservisible).
-            $output .= "<div>$activityimg $instancename</div> $groupinglabel";
+            $output .= "<div>$instancename</div> $groupinglabel";
         }
 
         return $output;

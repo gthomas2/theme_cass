@@ -27,7 +27,7 @@ img.snap-logo {
 #page-login-signup {
   .lang-en #moodle-footer {
     margin-top: 0;
-    font-family: $font-family-fancy;
+    font-family: $font-family-feature;
     font-size: .8em;
     color: $gray-light;
     text-align: left;
@@ -62,20 +62,6 @@ body {
 
 ::selection {
   background: $brand-primary;
-}
-
-#page-mod-quiz-attempt,
-#page-mod-quiz-review {
-  select:disabled,
-  input:disabled,
-  input:disabled + label {
-    opacity: 1;
-  }
-}
-
-#page-mod-quiz-attempt .text-success {
-  color: $brand-green !important;
-  margin-bottom: 5px !important;
 }
 
 .green, .notifysuccess, .connected {
@@ -321,48 +307,6 @@ ol.breadcrumb {
   padding: 0 3.444%;
 }
 
-#page-mod-quiz-edit div.reorder {
-  div.question div.content {
-    width: calc(100% - 4.3em);
-  }
-}
-
-.que {
-  margin: 0 !important;
-}
-
-#region-main {
-  .que .info,
-  .que .content {
-    background-color: transparent;
-    border: 0;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    float: none;
-  }
-}
-
-
-// Adding region main to overwite boost extend alert on quiz elements.
-#region-main {
-  .que .formulation,
-  .formulation .incorrect,
-  .formulation .correct {
-    padding: 1rem 0;
-  }
-}
-
-.que .qtext {
-  font-size: inherit;
-}
-
-.que.multichoice .answer div.r0,
-.que.multichoice .answer div.r1 {
-  padding: .3em 0 0.3em 40px !important;
-  text-indent: -40px;
-}
-
 // -------------------------
 // Reduce font sizes on small screen
 // -------------------------
@@ -433,7 +377,7 @@ body:not(.pagelayout-coursecategory) {
 
 .next_activity_link {
   margin: 0 auto;
-  font-family: $font-family-fancy;
+  font-family: $font-family-feature;
   max-width: 960px;
   padding: 0 10px;
 }
@@ -482,13 +426,9 @@ input[name=previous] {
   position: absolute;
 }
 
-.box.quizattempt {
-  padding-bottom: 6.18%;
-}
-
 .next_activity_overlay {
-  background: #888;
-  padding: 0;
+  background: white;
+  padding: 2em 0;
   margin-top: 1px;
   z-index: 50;
   width: 100%;
@@ -497,14 +437,16 @@ input[name=previous] {
   top: 0;
   left: 0;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div {
+    flex: 0 0 100%;
+  }
 }
 
 .next_activity_overlay h5 {
   color: white;
-}
-
-div#mod_quiz_navblock .content {
-  display: none;
 }
 
 ol.breadcrumb > li {
@@ -1006,7 +948,7 @@ ol.breadcrumb > li {
 
               p {
                 margin: 0 !important;
-                font-family: $font-family-fancy !important;
+                font-family: $font-family-feature !important;
               }
             }
 
@@ -2025,31 +1967,6 @@ label .m-l-1 {
   list-style-type: none;
 }
 
-@media (min-width: 979px) {
-  #page-course-view-weeks, #page-course-view-topics {
-    #snap-course-wrapper {
-      > .row {
-        justify-content: space-between;
-        .col-lg-3, col-lg-9 {
-          margin: 0;
-          padding: 0;
-        }
-        .col-lg-3 {
-          top: 0;
-          flex: 0 0 29.0966%;
-          max-width: 29.0966%;
-        }
-        .col-lg-9 {
-          flex: 0 0 61.8034%;
-          max-width: 61.8034%;
-        }
-      }
-    }
-  }
-}
-
-
-
 #snap-pm-courses .snap-personal-menu-more {
   display: none;
 }
@@ -2060,16 +1977,6 @@ label .m-l-1 {
 
 .theme-snap .asset-wrapper .activityinstance .snap-asset-meta a {
   color: #fff !important;
-}
-
-// Make the manual completion area nicer:
-.next_activity_overlay {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  > div {
-    flex: 0 0 100%;
-  }
 }
 
 body.path-mod #moodle-footer {
@@ -2083,12 +1990,8 @@ body.path-mod #moodle-footer {
 #region-main {
   width: 100%;
   float: none !important;
-  max-width: 960px;
   border: none;
   background-color: unset;
-  .course-content {
-    max-width: none;
-  }
   overflow: visible;
 }
 
@@ -2163,4 +2066,8 @@ body.sub-theme-cass #region-main {
   // Temporary code to reset the button link.
   background-color: transparent !important;
   border: none !important;
+}
+
+body.sub-theme-cass.pagelayout-admin #region-main {
+    padding: 2em;
 }

@@ -7,6 +7,9 @@
     "branch": 38,
     "tag": "latest-38",
     "plugins": [
+      "theme/cass",
+      "theme/snap",
+      "mod/hsuforum"
     ]
   },
   "scripts": {

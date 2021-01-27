@@ -1,0 +1,340 @@
+.path-course-view #page-header h1 {
+    display: none;
+}
+
+.format-topics {
+    li.section .sectionname:before {
+        content: none;
+    }
+}
+
+.course-content {
+    max-width: $cass-width;
+}
+
+.sectionname {
+    font-size: 3.5em;
+    line-height: 1em;
+    color: black;
+    font-weight: 700;
+    padding-bottom: 1em;
+    padding-top: 0;
+}
+
+body.sub-theme-cass {
+  .snap-activity .asset-wrapper .snap-assettype {
+    display: none;
+  }
+}
+
+.path-course-view .section .summary {
+  padding-bottom: 1.25em;
+}
+
+.snap-section-editing {
+  text-align: center;
+  margin-top: 0;
+}
+
+.section-modchooser-link.btn {
+  display: block;
+  cursor: pointer;
+  background-size: 2rem 2rem;
+  padding: 1em 0 1em 0;
+  border: 3px dashed #eee;
+  border-radius: 4px;
+  background: transparent;
+  box-shadow: none;
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+  font-family: $font-family-feature !important;
+
+  &:hover,
+  &:focus {
+    border-color: $gray-lighter;
+    background: inherit;
+  }
+}
+
+.snap-modchooser {
+  padding-top: 1em;
+}
+
+.snap-section-complete + small {
+  color: #6C953C;
+}
+
+.course-content > ul li.section.state-visible {
+  counter-reset: activity;
+}
+
+.section .activityinstance.collapse {
+  max-height: auto;
+  min-height: auto;
+}
+
+// -------------------------
+// Activity & Resource styles
+// -------------------------
+h4.snap-asset-link .instancename {
+  line-height: 1em;
+}
+
+
+// -------------------------
+//  Assets in snap.
+// -------------------------
+.section li.snap-asset {
+  padding: 0 0 1.55em;
+  margin: 0;
+  border-left: 1px solid #bbb;
+  border-top-width: 0.3em;
+
+  #section-0 & {
+    border: none;
+    padding-bottom: 1em;
+  }
+  box-shadow: none;
+  background-color: transparent;
+  border-radius: 0;
+
+  // For editors add space for editong tools.
+  &.snap-can-edit {
+    padding-bottom: 2em !important;
+  }
+
+  .asset-wrapper {
+    height: 100%;
+    padding: 0;
+    #section-0 & {
+      border-top: 3px solid $brand-info;
+      box-shadow: -2px 1px 4px $gray-light;
+      background: #fff;
+    }
+  }
+}
+
+// Override the stepper border on the final activity list item
+.section li.snap-asset-last {
+  border-left: none;
+}
+
+.modtype_book,
+.modtype_page {
+  border-bottom: inherit;
+}
+
+
+// Reset Snap activity CSS
+// TODO - initial would work better here but we need inherit for IE11 support.
+// Check that this reset works as expected.
+.section li.snap-activity {
+  padding-bottom: inherit;
+
+  &.modtype_forum,
+  &.modtype_chat,
+  &.modtype_hsuforum {
+    border-top-color: inherit;
+  }
+
+  &.modtype_assign,
+  &.modtype_assignment,
+  &.modtype_workshop {
+    border-top-color: inherit;
+  }
+
+  &.modtype_choice,
+  &.modtype_feedback,
+  &.modtype_quiz,
+  &.modtype_survey,
+  &.modtype_questionnaire,
+  &.modtype_lesson {
+    border-top-color: inherit;
+  }
+
+  &.modtype_data,
+  &.modtype_glossary,
+  &.modtype_wiki {
+    border-top-color: inherit;
+  }
+
+  &.modtype_collaborate {
+    border-top-color: inherit;
+  }
+
+  &.modtype_folder {
+    border-top-color: inherit;
+  }
+}
+
+
+//CASS block
+
+body#page-course-view-weeks button {
+  background: none;
+  color: #999;
+  box-shadow: none;
+  padding: 0 1em;
+}
+
+#snap-course-wrapper .course-content h4.snap-asset-link a {
+  color: #333;
+}
+
+h4.snap-asset-link {
+  font-size: 1.1em;
+  color: #333;
+  padding-left: 2em;
+  float: left;
+  margin-top: 2px;
+  #section-0 & {
+    padding: .618em 1em;
+  }
+}
+
+// Resticted activies that are not clickable output the title twice.
+// Hide it in the activity instance.
+.sub-theme-cass .activityinstance .snap-asset-link > * {
+  display: none;
+}
+
+.unavailable .snap-asset-link:before {
+  background: $gray-light;
+}
+
+// A circle for each activity. Contains a number and/or staus tick.
+.stepper-current,
+.stepper-future,
+.stepper-complete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  left: -1rem;
+  border-radius: 50%;
+  color: #fff;
+  background: $brand-info;
+  font-size: .7em;
+  font-family: $font-family-monospace;
+  @include lining;
+}
+// Diffent background colour for the steppers.
+.stepper-future {
+    background-color: $gray;
+}
+.stepper-complete {
+    background-color: $brand-success;
+}
+
+li.unavailable h4 {
+  color: $gray-light;
+}
+
+#page .course-content .content ul.section.img-text {
+  margin: 1em 0 0 .75em;
+}
+
+.course-content #section-0 .content ul.section.img-text {
+  margin: 0;
+}
+
+.section li.snap-activity {
+  background-image: none;
+  width: 99%; // to allow for box-shadow faux border
+
+
+  .activityicon {
+    display: none;
+  }
+
+  .activityinstance {
+    // Padding between table columns.
+    .contentwithoutlink table {
+      th, td {
+        padding-right: 1rem;
+      }
+    }
+    .snap-asset-link {
+      display: block;
+      font-size: $font-size-lg;
+      display: block;
+      overflow: hidden;
+      @include clearfix();
+
+    }
+  }
+}
+
+// experimental code, not used bu keeping as may...
+.section li.snap-activity {
+  &.modtype_forum {
+
+    // background-image:linear-gradient(to right,#71d5df 22%,#ffffff 22%);
+  }
+}
+
+li.snap-activity {
+  border-left: 0.3em solid #ccc;
+  border-radius: 3px;
+}
+
+a.snap-assignment-stage.label.label-warning {
+  display: none;
+}
+
+// Activity data - e.g. Due date & Group info
+.snap-completion-meta,
+.snap-group-tag,
+.snap-grouping-tag {
+  text-align: inherit;
+  margin-left: -0.4em;
+  font-family: $font-family-feature;
+}
+
+.snap-asset-completion-tracking {
+  display: none;
+}
+
+/* Indent text associated with activity/resource. */
+.section li.snap-activity {
+  .contentafterlink,
+  .hsuforum-recent {
+    margin-left: inherit;
+  }
+}
+
+.jsenabled .snap-asset .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
+  padding: 1em 1.618em;
+}
+
+/* forum unread posts button */
+.snap-asset .unread {
+  display: inline-block;
+  background: $brand-green;
+  border-radius: 1.618em;
+  padding: .618em 1em;
+  margin: 0 0 1em 0;
+  font-size: .618em;
+  line-height: 1em;
+  color: $modal-bg;
+  a {
+    color: $modal-bg;
+    font-family: $font-family-feature;
+  }
+}
+
+// Small screen moving cancel link.
+@include media-breakpoint-down(md) {
+  #moodle-page #region-main {
+    padding: 0 3.44% 6.18%;
+    max-width: 100%;
+  }
+
+  li.snap-visible-section {
+    background: #eee;
+  }
+}

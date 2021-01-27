@@ -1,0 +1,127 @@
+a#snap-home {
+  display: none;
+}
+
+/**
+ * All mods.
+ */
+.path-mod #region-main div[role="main"]{
+    // Padding between table columns.
+    .no-overflow table {
+        th, td {
+            padding-right: 1rem;
+        }
+    }
+}
+
+/**
+ * Mod book.
+ */
+.path-mod-book {
+  .card-block {
+    padding: 0;
+  }
+}
+
+/**
+ * Feedback plugin.
+ */
+.path-mod-feedback input[type="radio"] {
+    margin-bottom: 0;
+}
+
+/**
+ * Mod assignment page.
+ */
+
+#page-mod-assign-view {
+    // Undo Snap large page column view.
+    @include media-breakpoint-up(md) {
+        .assign-intro {
+            width: 100%;
+            float: none;
+        }
+        .assign-submission-data,
+        .assign-feedback,
+        .assign-grading-summary {
+            padding: 1em;
+            background-color: $gray-lighter;
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            float: none;
+        }
+        .assign-feedback {
+            .row {
+                font-size: small;
+            }
+        }
+    }
+    .fileuploadsubmission {
+        min-width: 0;
+        a {
+            word-break: break-word;
+        }
+    }
+}
+
+.sub-theme-cass {
+    &#page-mod-page-mod, &#page-mod-resource-mod {
+        #id_submitbutton {
+            display: inline-block;
+        }
+    }
+}
+
+#page-mod-assign-grading {
+    // Style the table to be smaller.
+    table {
+        thead {
+            font-size: small;
+            th.header {
+                padding: .5em 0;
+            }
+        }
+        td.cell {
+            font-size: .8em;
+            padding: .5em;
+            vertical-align: middle;
+            // Make the edit button and grade dropdown line up.
+            .btn-primary {
+                padding: .25rem .5rem;
+                font-size: .8rem;
+                line-height: 1.5;
+            }
+            .menubar {
+                margin: -1em 0;
+            }
+        }
+    }
+}
+
+/**
+ * Hsuforum make sure single simple discussion title is shown correctly.
+ */
+body.hsforum-type-single #page.firstactivityinsection {
+    .hsuforum-thread-title {
+        background-color: #8f182e;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin: -80px -50vw 2rem -50vw;
+        min-height: 260px;
+        display: flex;
+        flex-direction: column;
+    }
+    .hsuforum-thread-title h4 {
+        color: white;
+        font-size: 2rem;
+        font-family: "ff-meta-serif-web-pro",Georgia,"Times New Roman",Times,serif;
+        width: 100%;
+        max-width: 960px;
+        margin: auto auto 0;
+        display: block;
+        margin-bottom: 40px;
+    }
+}

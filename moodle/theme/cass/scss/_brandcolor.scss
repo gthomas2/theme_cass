@@ -1,0 +1,71 @@
+.theme-snap {
+  #snap-collapse-help {
+    border-left: .25em solid $brand-primary;
+    visibility: hidden;
+  }
+  .btn.btn-default,
+  .btn.btn-secondary,
+  .btn.btn-outline-primary,
+  .btn.btn-outline-secondary,
+  .button-group > button,
+  input.form-submit,
+  .atto_form button,
+  .gradingform_checklist.editor .addgroup input,
+  .gradingform_checklist.editor .additem input,
+  .gradingform_rubric.editor .addlevel input,
+  .gradingform_rubric.editor .addcriterion input,
+  .paging.paging-morelink a,
+  a.yui3-button,
+  .yui-button button,
+  .header-button-group .btn,
+  &#page-site-index .section-modchooser-link .section-modchooser-text,
+  #id_cancel {
+
+    // Imitate btn.btn-secondary CSS for buttons without proper
+    // Bootstrap classes applied to them, and override colors for
+    // btn-secondary, btn-default.
+    font-family: "ff-meta-web-pro",Helvetica,Arial,sans-serif;
+    text-align: center;
+    cursor: pointer;
+    background-image: none;
+    white-space: nowrap;
+    padding: 1em 1.618em;
+    font-size: 14px;
+    line-height: 1em;
+    border-radius: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: baseline;
+    margin: .4em 0;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    color: #fdfdfd;
+    border-color: #8f182e;
+    background: $brand-primary;
+    border-radius: 4px;
+
+    &:hover:not(:disabled),
+    &:focus:not(:disabled),
+    &:active:not(:disabled),
+    &.active:not(:disabled) {
+      background-color: $brand-primary;
+      border-color: $brand-primary;
+      color: #fff;
+      outline: 3px auto $brand-primary;
+    }
+  }
+
+  // -------------------------
+  // Navigation bar
+  // -------------------------
+  #mr-nav {
+    background-color: white;
+    border-bottom: 1px solid #afa79f;
+    a.snap-login-button {
+      color: #fff;
+    }
+  }
+}

@@ -1,0 +1,84 @@
+// -------------------------
+// Course toc & appendicies.
+// -------------------------
+#course-toc {
+  position: sticky;
+  top: 3rem;
+
+  // Hide toc elements.
+  #toc-search,
+  #toc-desktop-menu-heading,
+  .toc-footer {
+    display: none !important;
+  }
+
+  /* TOC list. */
+  #chapters {
+    padding: 2em 1em 2em 2.618em;
+    box-shadow: 0 8px 16px 0 rgba(30,30,30,.2);
+    margin: 0 0em 2.614em;
+    background: $gray-lighter;
+    list-style: decimal;
+    li {
+      font-size: 0.8em;
+      padding: 0 0 0.618em 0.618em;
+      line-height: 1em;
+      min-height: 3em;
+    }
+
+    /* Chapter link */
+    .chapter-title {
+      margin-bottom: -0.25em;
+      line-height: 1em;
+      color: $text-color;
+    }
+  }
+
+  /* Completed section icon. */
+  .snap-section-complete {
+    width: 1.2em;
+    height: 1.2em;
+  }
+}
+
+// -------------------------
+// Display when toc is part of page body.
+// -------------------------
+
+li.snap-visible-section:before {
+  content: ">";
+  float: right;
+  line-height: 1.6em;
+  font-weight: bold;
+  padding-right: .614em;
+  margin-top: -5px;
+}
+
+#snap-course-wrapper {
+  margin: 0 auto;
+  padding: 0 3.44%;
+
+  #region-main {
+    font-family: $font-family-feature;
+  }
+}
+
+a.chapter-title {
+  padding-bottom: 0.614em;
+}
+
+
+// -------------------------
+// Display when toc is part of page header.
+// -------------------------
+#page-header {
+  // Specific styles for numbered chapters to improve readability.
+  #page-course-view-weeks ol.chapters li {
+    margin-left: 2em;
+    list-style-type: decimal;
+    list-style-position: outside;
+    &:first-child {
+      list-style-type: none;
+    }
+  }
+}

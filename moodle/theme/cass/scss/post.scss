@@ -1,0 +1,47 @@
+// CASS has it's own post.scss file so that we can place CASS overrides after the main snap files.
+// Note, where ever we override a snap .scss file and we also want the snap one to be included, we must use
+// a relative path to the snap .scss. Also the Snap .scss file has to go before the cass one.
+// If CASS does not have a corresponding .scss file then the snap one is loaded automatically WITHOUT having to specify
+// a relative path to it. NOTE: This is very important, only use relative paths for snap .scss when the CASS theme has
+// a corresponding .scss file.
+
+@import "../../cass/scss/brand"; // CASS overrides.
+@import "mixins";
+@import "joule";
+@import "compatibility";
+@import "yui";
+@import "blocks";
+@import "../../snap/scss/core";
+@import "core"; // CASS overrides.
+@import "atto";
+@import "../../snap/scss/course";
+@import "course"; // CASS overrides.
+@import "../../snap/scss/coursefooter";
+@import "coursefooter"; // CASS overrides.
+@import "courselistings";
+@import "../../snap/scss/toc";
+@import "toc"; // CASS overrides.
+@import "../../snap/scss/personalmenu";
+@import "personalmenu"; // CASS overrides.
+@import "forms";
+@import "filemanager";
+@import "../../snap/scss/plugins";
+@import "plugins"; // CASS overrides.
+@import "hsuforum"; // CASS overrides.
+@import "quiz"; // CASS overrides.
+@import "../../snap/scss/userprofile";
+@import "userprofile"; // CASS overrides.
+@import "message";
+@import "coursemanagement";
+@import "themesettings";
+@import "../../snap/scss/brandcolor";
+@import "brandcolor"; // CASS overrides.
+@import "typefaces";
+@import "fixy"; // CASS specific.
+@import "glyphicon_font-awesome_convert"; // CASS specific.
+@import "behat";
+@import "custom";
+@import "print";
+
+// Import FontAwesome.
+@import "../../boost/scss/fontawesome";

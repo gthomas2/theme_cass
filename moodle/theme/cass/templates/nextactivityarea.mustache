@@ -1,0 +1,24 @@
+<div class="next_activity_area" data-completion="{{compjson}}">
+    {{#showoverlay}}
+    <div class="next_activity_overlay">
+        <div>
+            <h2>{{#str}}markascomplete, theme_cass{{/str}}</h2>
+            <button data-cmid="{{modid}}" class="btn btn-primary completeclick">{{#str}}ihavecompletedthisactivity, theme_cass{{/str}}</button>
+        </div>
+    </div>
+    {{/showoverlay}}
+    <div class="next_activity_link">
+        <div class="activity-complete">
+            <span class="activity-complete fa fa-check"></span>
+            <div class="done">{{#str}}activitycomplete, theme_cass{{/str}}</div>
+        </div>
+        <div class="next_activity_text">
+            <a class="next_activity" href="{{{forwardlinkurl}}}">
+                <div class="nav_icon"><i class="icon-arrow-right"></i></div>
+                <span class="text">
+                    <span class="nav_guide">{{forwardlinktext}}</span><br>{{forwardlinkname}}
+                </span>
+            </a>
+        </div>
+    </div>
+</div>

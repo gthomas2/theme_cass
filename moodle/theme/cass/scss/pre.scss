@@ -1,0 +1,78 @@
+$font-size-root: 21px;
+
+$font-size-h1:            floor($font-size-root * 3);
+$font-size-h2:            floor($font-size-root * 2.6);
+$font-size-h3:            ceil($font-size-root * 2.2);
+$font-size-h4:            ceil($font-size-root * 2);
+$font-size-h5:            ceil($font-size-root * 1.6);
+$font-size-h6:            ceil($font-size-root * 1.3);
+
+$body-bg:               #fdfdfd;
+$body-color:            #333;
+
+$gray-darker:           #222;
+$gray-dark:             #333;
+$gray:                  #666;
+$gray-light:            #afa79f;
+$gray-lighter:          #f5f5f5;
+
+$brand-primary:         #8f182e;
+$brand-success:         #e2cc00;
+$brand-warning:         #e55302;
+$brand-danger:          #c9282d;
+$brand-info:            #00759b;
+$brand-green:         	#6c953c;
+$brand-yellow:          #e2cc00;
+$brand-purple:          #8f2b8c;
+
+$text-color:            #333;
+$modal-bg:              #fff;
+
+$font-family-base:         "ff-meta-web-pro", Helvetica, Arial, sans-serif !default;
+$font-family-system:      $font-family-base;
+$font-family-sans-serif:  $font-family-base;
+$font-family-feature:     "ff-meta-serif-web-pro", Georgia, "Times New Roman", Times, serif;
+
+$breadcrumb-divider: "|";
+
+$btn-secondary-color:            #fff;
+
+$nav-bg:                         #fff !default;
+$nav-color:                      $gray-dark !default;
+
+// Extra SCSS included from snap/pres.scss to accommodate variable changes above:
+
+$state-success-text:             $brand-success;
+$state-success-bg:               fade-out($brand-success, 0.9);
+$state-success-border:           fade-out($brand-success, 0.9);
+
+$state-info-text:                $brand-info;
+$state-info-bg:                  fade-out($brand-info, 0.9);
+$state-info-border:              fade-out($brand-info, 0.9);
+
+$state-warning-text:             $brand-warning;
+$state-warning-bg:               fade-out($brand-warning, 0.9);
+$state-warning-border:           fade-out($brand-warning, 0.9);
+
+$state-danger-text:              $brand-danger;
+$state-danger-bg:                fade-out($brand-danger, 0.9);
+$state-danger-border:            fade-out($brand-danger, 0.9);
+
+
+$nav-bg:                            rgba(255, 255, 255, .95) !default;
+$nav-color:                         $brand-primary !default;
+$nav-color-hover:                   darken($nav-color, 8%);
+
+$nav-button-bg:                     rgba(255, 255, 255, 0) !default;
+$nav-button-color:                  $nav-color !default;
+
+$nav-login-bg:                      $nav-button-bg;
+$nav-login-color:                   $nav-button-color;
+
+@if (alpha($nav-button-bg) == 0) {
+  $nav-login-color:                 $nav-bg;
+  $nav-login-bg:                    $nav-button-color;
+}
+
+// A smaller - 45-75 char per line, container width for CASS.
+$cass-width: 35em;
